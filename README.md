@@ -52,6 +52,10 @@ Copy password for `github` to clipboard (substitute `pbcopy` on macOS):
 $ ./pwd.sh r github | cut -f 1 -d ' ' | awk 'NR==3{print $1}' | xclip
 ```
 
+```console
+pwd.sh r github1 ${password} | cut -f 1 -d ' ' | awk 'NR==1{print $1}' | xclip
+```
+
 The script and encrypted `pwd.sh.safe` file can be publicly shared between trusted computers.
 
 See [drduh/config/gpg.conf](https://github.com/drduh/config/blob/master/gpg.conf) for additional GPG options.
