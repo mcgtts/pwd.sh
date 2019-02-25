@@ -37,6 +37,7 @@ Read password for `user@github`:
 
 ```console
 $ ./pwd.sh r user@github
+$ ./pwd.sh r user@github ${password}
 ```
 
 Delete password for `dropbox`:

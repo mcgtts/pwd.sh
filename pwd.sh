@@ -75,10 +75,13 @@ read_pass () {
 
   if [[ -z "${username}" || "${username}" == "all" ]] ; then username="" ; fi
 
-  while [[ -z "${password}" ]] ; do get_pass "
-  Password to unlock ${safe}: " ; done
-  printf "\n\n"
-
+  if [[ -n "${3+x}" ]]; then 
+    password="${3}" ;
+  else
+    while [[ -z "${password}" ]] ; do get_pass "
+    Password to unlock ${safe}: " ; done
+    printf "\n\n"
+  fi
   decrypt "${password}" ${safe} | grep -F " ${username}" \
     || fail "Decryption failed"
 }
